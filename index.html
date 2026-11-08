@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Crea tarjetas con tus imágenes y prompts de IA, de forma privada y local.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+  <title>Mi Portafolio IA — Crea y comparte</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="index.html"><span class="brand-icon">✳</span> Mi Portafolio <b>IA</b></a><span class="privacy">● 100% local y privado</span></header>
+  <main>
+    <section class="intro"><span class="eyebrow">DE TU IMAGINACIÓN, AL MUNDO</span><h1>Cada imagen tiene una historia.<br><span>Comparte la tuya.</span></h1><p>Transforma tu imagen y su prompt en una tarjeta lista para compartir.</p></section>
+    <div class="workspace">
+      <section class="editor" aria-label="Personalizar tarjeta">
+        <section class="step"><h2><span>01</span> Tu imagen</h2><label class="dropzone" id="dropzone" for="imageInput"><span class="upload-icon">↑</span><strong id="fileLabel">Elige una imagen o arrástrala aquí</strong><small>JPG, PNG o WEBP · Se queda en tu navegador</small></label><input class="visually-hidden" id="imageInput" type="file" accept="image/jpeg,image/png,image/webp"><p id="imageStatus" class="hint" role="status"></p></section>
+        <section class="step"><h2><span>02</span> La historia detrás</h2><label for="title">Título</label><input id="title" placeholder="Ej. Un jardín en otro planeta" maxlength="160"><div class="label-row"><label for="prompt">Prompt completo</label><button type="button" id="copy" class="text-button">Copiar prompt</button></div><textarea id="prompt" rows="5" placeholder="Describe cómo creaste tu imagen…"></textarea><div class="fields"><div><label for="tool">Herramienta usada</label><select id="tool"><option>ChatGPT</option><option>Gemini</option><option>Midjourney</option><option>Kling</option><option>Otra</option></select></div><div><label for="ratio">Ratio original</label><select id="ratio"><option value="auto">Detectar de la imagen</option><option>16:9</option><option>9:16</option><option>1:1</option><option>4:5</option><option>3:2</option><option>2:3</option><option>Otro</option></select></div></div><label for="level">Nivel de uso de IA</label><select id="level"><option>Bajo</option><option selected>Medio</option><option>Alto</option></select></section>
+        <section class="step"><h2><span>03</span> Hazla tuya</h2><fieldset><legend>Plantilla visual</legend><div class="templates"><label class="template dark"><input type="radio" name="theme" value="dark" checked><span>Oscura</span></label><label class="template light"><input type="radio" name="theme" value="light"><span>Clara</span></label><label class="template color"><input type="radio" name="theme" value="color"><span>De color</span></label></div></fieldset><div class="accent-row"><label for="accent">Color de acento</label><input id="accent" type="color" value="#b7f568"><span id="accentValue">#B7F568</span></div></section>
+        <section class="step"><h2><span>04</span> Lista para compartir</h2><label for="format">Formato de descarga</label><select id="format"><option value="1920,1080">Horizontal · 16:9 · 1920 × 1080</option><option value="1080,1920">Historia · 9:16 · 1080 × 1920</option><option value="1080,1080" selected>Cuadrado · 1:1 · 1080 × 1080</option><option value="1080,1350">Publicación · 4:5 · 1080 × 1350</option></select><button id="download" class="download" disabled>Descargar tarjeta PNG <span>↓</span></button><p class="hint">Sin marcas de agua. Sin cuentas. Toda tu creatividad.</p></section>
+      </section>
+      <aside class="preview-panel"><div class="preview-heading"><h2>Tu tarjeta</h2><span><i></i> VISTA PREVIA EN VIVO</span></div><div class="canvas-stage"><canvas id="canvas" width="1080" height="1080" aria-label="Vista previa de la tarjeta"></canvas></div><div class="preview-footer"><span id="dimensions">1080 × 1080 px</span><span>PNG de alta calidad</span></div><p id="textStatus" class="hint" role="status"></p><p class="preview-note">Tu idea, tu proceso, tu firma.<br>El prompt también es parte de la obra.</p></aside>
+    </div>
+  </main><footer>Hecho para crear. Diseñado para compartir. <span>Mi Portafolio IA</span></footer><div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
